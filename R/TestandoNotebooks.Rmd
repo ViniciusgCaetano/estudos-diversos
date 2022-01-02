@@ -1,0 +1,33 @@
+```{r}
+eye_color <- c(2,2,4,1,5,5,5,6,1,3,6,3,1,4)
+feye_color = factor(eye_color)
+levels(feye_color) <- c("amber","blue","brown","gray","green","hazel")
+```
+
+```{r}
+empathy_score <- c(15,21,45,32,61,74,53,92,83,22,67,55,42,44)
+eyes_and_empathy  <- list(eyes_code=eye_color, eyes=feye_color, empathy=empathy_score)
+
+code <- eyes_and_empathy[1]
+code
+
+```
+
+```{r}
+t.result <- t.test(eyes_and_empathy$empathy, mu = 30)
+t.result$p.value
+
+```
+
+```{r}
+e <- data.frame(eye_color, feye_color, empathy_score)
+e
+```
+
+```{y}
+
+```
+
+```{r}
+
+```
