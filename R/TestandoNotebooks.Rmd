@@ -21,13 +21,24 @@ t.result$p.value
 
 ```{r}
 e <- data.frame(eye_color, feye_color, empathy_score)
-e
-```
-
-```{y}
-
+e[7,]
+edit(e)
 ```
 
 ```{r}
+e.blue <- e$empathy_score[e$feye_color=="blue"]
+e.green <- e$empathy_score[e$feye_color=="green"]
+e.hazel <- e$empathy_score[e$feye_color=="hazel"]
 
+e.averages <- c(mean(e.blue), mean(e.green), mean(e.hazel))
+e.amounts <- c(length(e.blue), length(e.green), length(e.hazel))
+colors <- c("blue","green","hazel")
+e.averages.frame <- data.frame(color=colors, average=e.averages, n=e.amounts)
+e.averages.frame
+```
+
+```{r}
+anorexia$Postwt - anorexia$Prewt
+t.test(anorexia$Postwt - anorexia$Prewt, mu=0)
+aov(Postwt-Prewt ~ Treat, data=anorexia)
 ```
