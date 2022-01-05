@@ -32,6 +32,9 @@ lista_uniao
 #	Exercício	4	- Usando	a	função	read.table()	leia	o	arquivo	do	link	abaixo	para	uma	dataframe
 #	http://data.princeton.edu/wws509/datasets/effort.dat
 ```{r}
+dataframe <- read.table("http://data.princeton.edu/wws509/datasets/effort.dat")
+dataframe
+class(dataframe)
 
 ```
 
@@ -41,13 +44,16 @@ lista_uniao
 labels:
 #	c("config",	"esfc",	"chang")
 ```{r}
-
+names(dataframe) <- c("config",	"esfc",	"chang")
+dataframe
 ```
 
 
 
 #	Exercício	6	- Imprima	na	tela	o	dataframe	iris,	verifique	quantas	dimensões	existem	no	
 ```{r}
+print(iris)
+print(dim(iris))
 
 ```
 
@@ -55,6 +61,7 @@ labels:
 
 #	Exercício	7	- Crie	um	plot	simples	usando	as	duas	primeiras	colunas	do	dataframe	iris
 ```{r}
+plot(iris[,2])
 
 ```
 
@@ -64,6 +71,9 @@ labels:
 dataframe	iris	em	que	Sepal.Length >	7
 #	Dica:	consulte	o	help	para	aprender	como	usar	a	função	subset()
 ```{r}
+dataframe_inicial <- iris
+novo_dataframe <- subset(dataframe_inicial, dataframe_inicial$Sepal.Length > 7 )
+novo_dataframe
 
 ```
 
@@ -74,7 +84,9 @@ divida	o	dataframe	em	um	subset	de 15	linhas
 #	Dica	1:	você	vai	ter	que	instalar	e	carregar	o	pacote	dplyr
 #	Dica	2:	consulte	o	help	para	aprender	como	usar	a	função	slice()
 ```{r}
-
+library(dplyr)
+copia_iris <- slice_sample(iris, n=15)
+copia_iris
 ```
 
 
@@ -84,5 +96,5 @@ apenas	valores	em	que	Sepal.Length	>	6
 #	Dica:	use	o	RSiteSearch() para	aprender	como	usar	a	função	filte
 
 ```{r}
-plot(cars)
+filter(copia_iris, copia_iris$Sepal.Length > 6)
 ```

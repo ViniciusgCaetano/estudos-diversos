@@ -36,3 +36,13 @@ mode(lista1$numericos)
 #Combinando listas
 lista3 <- c(lista1, lista2)
 lista3
+
+
+
+#Combinando dois elementos 
+mat <- matrix(1:4, nrow = 2)
+mat
+vec <- c(1:9)
+vec
+lis = list(mat, vec)
+lis
