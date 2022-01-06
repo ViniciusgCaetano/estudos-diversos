@@ -1,0 +1,17 @@
+---
+title: "R Notebook"
+output: html_notebook
+---
+Exercício	1	- Crie	uma	função	que	receba	e	vetores	como	parâmetro,	converta-os	em	um	
+dataframe	e	imprima
+
+```{r}
+cnvrt <-  function(vet){
+    df <- data.frame(vet)
+    print(df)
+}
+
+a <- c(1,2,3,4,5,6,7,8,9)
+cnvrt(a)
+```
+
