@@ -2,16 +2,81 @@
 title: "R Notebook"
 output: html_notebook
 ---
-Exercício	1	- Crie	uma	função	que	receba	e	vetores	como	parâmetro,	converta-os	em	um	
-dataframe	e	imprima
+Exercício 1 - Crie	uma	função que receba e	vetores	como parâmetro, converta-os em um dataframe e imprima
 
 ```{r}
-cnvrt <-  function(vet){
-    df <- data.frame(vet)
+cnvrt <-  function(...){
+    df <- data.frame(cbind(...))
     print(df)
+    
 }
 
-a <- c(1,2,3,4,5,6,7,8,9)
-cnvrt(a)
+a <- 1:5
+b <- 6:10
+c <- 11:15
+cnvrt(a,b,c)
 ```
+
+Exercício 2 - Crie  uma matriz com 4 linhase 4 colunas preenchida com	números	inteiros e calcule a media de cada linha
+```{r}
+mat <- matrix(1:16, nrow=4, ncol=4)
+print(mat)
+for(i in 1:nrow(mat)){
+    print(mean(mat[i,]))
+}
+```
+
+#	Exercício	3	- Considere	o	dataframe	abaixo.	Calcule	a	media	por	disciplina
+```{r}
+escola	<- data.frame(Aluno	=	c('Alan', 'Alice', 'Alana',	'Aline', 'Alex',	'Ajay'),Matemática	=	c(90,	80,	85,	87,	56,	79), Geografia	=	c(100,	78,	86,	90,	98,	67), Química = c(76, 56,	89,	90,	100, 87))
+
+
+for(i in 2:length(escola)){
+
+   a <- sprintf("%s: %.2f", names(escola)[i], mean(escola[,i]))
+   print(a)
+}
+
+```
+																			
+#	Exercício	4	- Cria	uma	lista	com	3	elementos,	todos	numéricos	e	calcule	a	soma	de	todos	os	
+elementos	da	lista
+```{r}
+
+lst <- list(1,2,3)
+
+total <- 0
+for(i in 1:length(lst)){
+    total <- total + lst[[i]]
+}
+print(total)
+```
+
+#	Exercício	5	- Transforme	a	lista	anterior	um	vetor
+```{r}
+vec <- c()
+
+for(i in 1:length(lst)){
+    vec <- append(vec, lst[[i]])
+}
+vec
+```
+
+#	Exercício	6	- Considere	a	string	abaixo.	Substitua	a	palavra	"textos" por	frases
+```{r}
+str	<- c("Expressoes",	"regulares", "em linguagem R",	
+"permitem a busca de padroes", "e exploracao de textos", "podemos	buscar padroes em digitos", "como por exemplo", "10992451280")
+
+library(stringr)
+str_replace_all(str, "textos", "frases")
+
+```
+									
+#	Exercício 7	- Usando	o	dataset	mtcars,	crie	um	gráfico com	ggplot	do	tipo	scatter	plot.	Use	as	
+colunas	disp	e	mpg	nos	eixos	x	e	y	respectivamente
+```{r}
+plot(mtcars$disp, mtcars$mpg)
+```
+
+#	Exercício 8	- Usando	o	exemplo	anterior,	explore	outros	tipos	de	gráficos
 
