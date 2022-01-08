@@ -9,13 +9,12 @@ lance_do_gui = Lance(gui, 150.0)
 
 leilao = Leilao('celular')
 
-leilao.lances.append(lance_do_yuri)
-leilao.lances.append(lance_do_gui)
+leilao.propoe(lance_do_gui)
+leilao.propoe(lance_do_yuri)
+
 
 for lance in leilao.lances:
     print(f'Lance do {lance.usuario.nome}: R${lance.valor}')
 
-avaliador = Avaliador()
-avaliador.avalia(leilao)
-print(f'O maior lance foi de R${avaliador.maior_lance} e o menor lance foi de R${avaliador.menor_lance}')
-
+leilao.avalia()
+print(f'O maior lance foi de R$ {leilao.maior_lance} e o menor lance foi de R$ {leilao.menor_lance}')
