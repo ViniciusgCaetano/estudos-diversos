@@ -21,21 +21,14 @@ Exercício 2 - Crie  uma matriz com 4 linhase 4 colunas preenchida com	números	
 ```{r}
 mat <- matrix(1:16, nrow=4, ncol=4)
 print(mat)
-for(i in 1:nrow(mat)){
-    print(mean(mat[i,]))
-}
+apply(mat, 1, mean)
 ```
 
 #	Exercício	3	- Considere	o	dataframe	abaixo.	Calcule	a	media	por	disciplina
 ```{r}
 escola	<- data.frame(Aluno	=	c('Alan', 'Alice', 'Alana',	'Aline', 'Alex',	'Ajay'),Matemática	=	c(90,	80,	85,	87,	56,	79), Geografia	=	c(100,	78,	86,	90,	98,	67), Química = c(76, 56,	89,	90,	100, 87))
 
-
-for(i in 2:length(escola)){
-
-   a <- sprintf("%s: %.2f", names(escola)[i], mean(escola[,i]))
-   print(a)
-}
+sapply(escola[,-c(1)], mean)
 
 ```
 																			
@@ -44,22 +37,12 @@ elementos	da	lista
 ```{r}
 
 lst <- list(1,2,3)
-
-total <- 0
-for(i in 1:length(lst)){
-    total <- total + lst[[i]]
-}
-print(total)
+sum(unlist(lst3))
 ```
 
 #	Exercício	5	- Transforme	a	lista	anterior	um	vetor
 ```{r}
-vec <- c()
-
-for(i in 1:length(lst)){
-    vec <- append(vec, lst[[i]])
-}
-vec
+vec <- unlist(lst)
 ```
 
 #	Exercício	6	- Considere	a	string	abaixo.	Substitua	a	palavra	"textos" por	frases

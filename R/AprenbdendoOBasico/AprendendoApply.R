@@ -70,12 +70,34 @@ install.packages('sqldf')
 require(sqldf)
 
 escola2 <- data.frame(Aluno = c('Alan', 'Alice', 'Alana', 'Alan', 'Alice', 'Alana'),
-                     Smestre = c(1 ,1 ,1 ,2 , 2, 2),
+                     Semestre = c(1 ,1 ,1 ,2 , 2, 2),
                      Matematica = c(90, 80, 85, 87, 56, 79),
                      Geografia = c(100, 78, 86, 90, 98, 67),
                      Quimica = c(76, 56, 89, 90, 100, 87))
 
 escola2
 sqldf("select Aluno, sum(Matematica), sum(Geografia), sum(Quimica) from escola2 group by Aluno")
+tapply(c(escola2$Matematica), escola2$Aluno, sum) 
 
-by(escola2[, c(2, 3, 4)])
+?by
+by(escola2[, c(2, 3, 4, 5)], escola2$Semestre, colSums)
+
+
+?lapply
+lista1 <- list(a = (1:10), b = (45:77))
+lapply(lista1, sum)
+sapply(lista1, sum)
+
+
+?vapply
+
+vapply(lista1, fivenum, c(Min. = 0, "1stQu." = 0, Median = 0, "3rdQu." = 0, Max. = 0))
+
+
+?replicate
+replicate(7, runif(10))
+
+mapply(rep, 1:4, 4:1)
+
+
+rapply()
