@@ -45,5 +45,48 @@ benchmark(do.call(sum, N), ldply(N, sum))
 
 #strsplt()
 texto <-  "Esta é uma sring"
-strsplit(texto, "")
- 
+strsplit(texto, " ")
+
+dates <-  c("1999-05-23", "2001-12-30", "2004-12-17")
+temp <-  strsplit(dates, "-")
+temp
+
+matrix(unlist(temp), ncol = 3, byrow = TRUE)
+
+Names <-  c("Brin, Sergey", "Page, Larry",
+            "Dorsey, Jack", "Glass, Noah",
+            "Williams, Evan", "Stone, Biz") 
+
+cofounded  <- rep(c("Google", "Twitter"), c(2,4))
+temp <-  strsplit(Names, ", ")
+
+frase <-  "Muitas vezes temos que repetir algo diversas vezes e essas diversas vezes parecem algo estranho"
+palavras <-  strsplit(frase, ' ')[[1]]
+unique(tolower(palavras))
+
+antes <-  data.frame(atrr = c(1, 30, 4,6), tipo = c('pao_e_agua', 'pao_e_agua2'))
+antes
+strsplit(as.character(antes$tipo), '_e_')
+
+library(stringr)
+str_split_fixed(antes$tipo, "_e_", 2)
+
+antes <-  data.frame(atrr = c(1, 30, 4,6), tipo = c('pao_e_agua', 'pao_e_agua2'))
+antes
+depois <-  strsplit(as.character(antes$tipo), '_e_')
+depois
+do.call(rbind, depois)
+
+library(dplyr)
+library(tidyr)
+
+antes <-  data.frame(
+    attr <- c(1, 30, 4, 6),
+    tipo <- c('pao_e_agua', 'pao_e_agua2')
+)
+
+antes %>%
+    separate(tipo, c('pao', 'agua'), "_e_")
+
+
+
