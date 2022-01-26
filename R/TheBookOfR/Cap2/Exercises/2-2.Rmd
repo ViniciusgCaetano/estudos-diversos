@@ -1,0 +1,33 @@
+---
+title: "2.2"
+output: html_notebook
+---
+Exercise 2.2
+a. Create an object that stores the value $3^{2}\times4^{1/8}$
+
+```{r}
+obj = 3^(2)*4^(1/8)
+obj
+
+```
+
+b. Overwrite your object in (a) by itself divided by 2.33. Print the
+result to the console.
+```{r}
+obj = obj / 2.33
+print(obj)
+
+```
+
+c. Create a new object with the value $−8.2 × 10^{−13}$
+
+```{r}
+new_obj = -8.2*10^(-13)
+new_obj
+```
+
+d. Print directly to the console the result of multiplying (b) by (c).
+```{r}
+print(obj*new_obj)
+```
+

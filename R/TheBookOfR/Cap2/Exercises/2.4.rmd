@@ -1,0 +1,78 @@
+---
+title: "2-4"
+output: html_notebook
+---
+
+
+a. Create and store a vector that contains the following, in this
+order:
+– A sequence of length 5 from 3 to 6 (inclusive)
+– A twofold repetition of the vector c(2,-5.1,-33)
+– The value ${7/42}+2$
+
+```{r}
+myve <- c(seq(from=3, to=6, length.out=5), rep(x=c(2,-5.1,-33), times=2), (7/2)+2)
+myvec
+```
+
+
+b. Extract the first and last elements of your vector from (a), storing
+them as a new object.
+```{r}
+new_obj <- myvec[c(1, length(myvec))]
+new_obj
+```
+
+
+c. Store as a third object the values returned by omitting the first
+and last values of your vector from (a).
+```{r}
+third_obj <-  myvec[-c(1, length(myvec))]
+third_obj
+```
+
+
+d. Use only (b) and (c) to reconstruct (a).
+```{r}
+reconstructed <- c(new_obj[1], third_obj, new_obj[2])
+reconstructed
+```
+
+
+e. Overwrite (a) with the same values sorted from smallest to
+largest.
+```{r}
+myvec <-  sort(myvec)
+myvec
+```
+
+
+f. Use the colon operator as an index vector to reverse the order
+of (e), and confirm this is identical to using sort on (e) with
+decreasing=TRUE.
+```{r}
+myvec_reversed <-  myvec[length(myvec):1]
+myvec_reversed 
+sort(myvec, decreasing = TRUE)
+
+```
+
+
+g. Create a vector from (c) that repeats the third element of (c)
+three times, the sixth element four times, and the last element once.
+```{r}
+repeatvector <-  c(rep(third_obj[3], 3), rep(third_obj[6], 4), third_obj[length(third_obj)])
+repeatvector
+```
+
+
+h. Create a new vector as a copy of (e) by assigning (e) as is to a
+newly named object. Using this new copy of (e), overwrite the
+first, the fifth to the seventh (inclusive), and the last element with
+the values 99 to 95 (inclusive), respectively.
+```{r}
+copy <- myvec
+copy[c(1, 5:7, length(myvec))] <- 99:95
+copy
+```
+

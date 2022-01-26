@@ -1,0 +1,19 @@
+---
+title: "tests cap 3"
+---
+
+
+```{r}
+myvec <- c(1,3,1,42)
+foo <- 32.1
+myvec2 <- c(3,-3,2,3.45,1e+03,64^0.5,2+(3-1.1)/9.44,foo)
+myvec3 <- c(myvec,myvec2)
+myvec3
+
+```
+
+```{r}
+myvec = 1:10
+myvec[-2]
+```
+
