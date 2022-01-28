@@ -1,0 +1,42 @@
+---
+title: "2-5"
+output: html_notebook
+---
+
+a. Convert the vector c(2,0.5,1,2,0.5,1,2,0.5,1) to a vector of only
+1s, using a vector of length 3.
+```{r}
+vec <-  c(2,0.5,1,2,0.5,1,2,0.5,1)
+vec <-  vec * c(0.5,2,1) 
+vec
+```
+
+b. The conversion from a temperature measurement in degrees
+Fahrenheit F to Celsius C is performed using the following
+equation:
+$C = \frac{5}{9}(F − 32)$
+
+Use vector-oriented behavior in R to convert the temperatures 45, 77, 20, 19, 101, 120, and 212 in degrees Fahrenheit to
+degrees Celsius.
+```{r}
+temperatures <-  c(45, 77, 20, 19, 101, 120)
+temperatures <-  temperatures - 32
+temperatures <-  temperatures * (5/9)
+temperatures
+```
+
+c. Use the vector c(2,4,6) and the vector c(1,2) in conjunction with
+rep and * to produce the vector c(2,4,6,4,8,12).
+```{r}
+myvec <- c(2,4,6)
+myvec <-myvec * rep(c(1,2), each=3)
+myvec
+```
+
+d. Overwrite the middle four elements of the resulting vector from
+(c) with the two recycled values -0.1 and -100, in that order.
+```{r}
+myvec[-c(1, 6)] = c(-0.1, -100)
+myvec
+```
+

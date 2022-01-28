@@ -1,0 +1,51 @@
+---
+title: "R Notebook"
+output: html_notebook
+---
+
+a. Calculate the following:
+2
+$\frac{2}{7}(\begin{bmatrix}1 & 2\\2 & 4\\7 & 6\end{bmatrix} - \begin{bmatrix}10 & 20\\30 & 40\\ 50 & 60\end{bmatrix})$
+```{r}
+mat_a <- matrix(data=c(1,2,2,4,7,6), nrow=3, byrow=T)
+mat_b <- matrix(data=c(10, 20, 30, 40, 50, 60), nrow=3, byrow=T)
+(2/7) * (mat_a - mat_b)
+```
+
+b. Store these two matrices:
+$A =\begin{bmatrix}1\\2\\7\end{bmatrix}$ $B =\begin{bmatrix}3\\4\\8\end{bmatrix}$
+```{r}
+A <- matrix(data=c(1,2,7), nrow=3)
+B <- matrix(data=c(3, 4 , 8), nrow=3)
+```
+
+Which of the following multiplications are possible? For
+those that are, compute the result.
+i. A · B
+ii. $A^⊤ · B$
+```{r}
+t(A) %*% B
+```
+
+iii. $B^⊤ · (A · A^⊤)$
+```{r}
+t(B) %*% (A %*% t(A))
+```
+
+iv. $(A · A^⊤) · B^⊤$
+
+
+v. $[(B · B^⊤) + (A · A^⊤) − 100I3]^−1$
+```{r}
+solve((B %*% t(B)) + (A %*% t(A)) - 100/3)
+```
+
+c. For
+A = $\begin{bmatrix}2 & 0 & 0 & 0\\0 & 3 & 0 & 0\\0 & 0 & 5 & 0\\0 & 0 & 0 & −1\end{bmatrix}$
+confirm that $A^{−1} · A − I_{4}$ provides a 4 × 4 matrix of zeros.
+
+```{r}
+mat <- diag(c(2,3,5,-1))
+test <- solve(mat) %*% mat %*% (mat%*%solve(mat))
+test == diag(4)
+```
