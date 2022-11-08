@@ -68,10 +68,5 @@ Reunir seções de estudos sobre tecnologias diversas.
 
 
 
-- Bootstrap
-  - Básico
-
-
-
 
 
